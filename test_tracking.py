@@ -80,7 +80,7 @@ def test(loader,model,epoch=-1,shape_aggregation="",reference_BB="",model_fusion
                                         offset=dataset.offset_BB,
                                         scale=dataset.scale_BB)
                         
-                        candidate_PCs,candidate_labels,candidate_reg = utils.regularizePCwithlabel(candidate_PC, candidate_label,candidate_reg,dataset.input_size)
+                        candidate_PCs,candidate_labels,candidate_reg = utils.regularizePCwithlabel(candidate_PC, candidate_label,candidate_reg,dataset.input_size,istrain=False)
                         
                         candidate_PCs_torch = candidate_PCs.unsqueeze(0).cuda()
 
@@ -96,7 +96,7 @@ def test(loader,model,epoch=-1,shape_aggregation="",reference_BB="",model_fusion
                         else:
                             model_PC = utils.getModel(PCs[:i],results_BBs,offset=dataset.offset_BB,scale=dataset.scale_BB)
 
-                        model_PC_torch = utils.regularizePC(model_PC, dataset.input_size).unsqueeze(0)
+                        model_PC_torch = utils.regularizePC(model_PC, dataset.input_size,istrain=False).unsqueeze(0)
                         model_PC_torch = Variable(model_PC_torch, requires_grad=False).cuda()
                         candidate_PCs_torch = Variable(candidate_PCs_torch, requires_grad=False).cuda()
 
