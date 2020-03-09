@@ -91,13 +91,14 @@ def regularizePC2(input_size, PC,):
     return regularizePC(PC=PC, input_size=input_size)
 
 
-def regularizePC(PC,input_size):
+def regularizePC(PC,input_size,istrain=True):
     PC = np.array(PC.points, dtype=np.float32)
     if np.shape(PC)[1] > 2:
         if PC.shape[0] > 3:
             PC = PC[0:3, :]
         if PC.shape[1] != int(input_size/2):
-            np.random.seed(1)
+            if not istrain:
+                np.random.seed(1)
             new_pts_idx = np.random.randint(
                 low=0, high=PC.shape[1], size=int(input_size/2), dtype=np.int64)
             PC = PC[:, new_pts_idx]
@@ -108,13 +109,14 @@ def regularizePC(PC,input_size):
 
     return torch.from_numpy(PC).float()
 
-def regularizePCwithlabel(PC,label,reg, input_size):
+def regularizePCwithlabel(PC,label,reg, input_size,istrain=True):
     PC = np.array(PC.points, dtype=np.float32)
     if np.shape(PC)[1] > 2:
         if PC.shape[0] > 3:
             PC = PC[0:3, :]
         if PC.shape[1] != input_size:
-            np.random.seed(1)
+            if not istrain:
+                np.random.seed(1)
             new_pts_idx = np.random.randint(
                 low=0, high=PC.shape[1], size=input_size, dtype=np.int64)
             PC = PC[:, new_pts_idx]
