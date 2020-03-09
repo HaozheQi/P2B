@@ -2,50 +2,43 @@
 
 ## Introduction
 
-This repository is code release for our CVPR 2020 paper. In this repository, we provide P2B model implementation (with Pytorch) as well as data preparation, training and evaluation scripts on KITTI tracking dataset.
+This repository is released for P2B in our [CVPR 2020 paper][hyperlink]. Here we include our P2B model (PyTorch) and code for data preparation, training and testing on KITTI tracking dataset.
 
-## Installation
+## Preliminary
 
 * Install ``python 3.6``.
 
-* Install dependencies
- ```
- pip install -r requirements.txt
- ```
+* Install dependencies.
+```
+    pip install -r requirements.txt
+```
 
-* Building `_ext` module
- ```
-python setup.py build_ext --inplace
- ```
- 
+* Build `_ext` module.
+```
+    python setup.py build_ext --inplace
+```
+
 * Download the dataset from [KITTI Tracking](http://www.cvlibs.net/datasets/kitti/eval_tracking.php).
 
-	You will need to download the data for
-	[velodyne](http://www.cvlibs.net/download.php?file=data_tracking_velodyne.zip), 
-	[calib](http://www.cvlibs.net/download.php?file=data_tracking_calib.zip) and
-	[label_02](http://www.cvlibs.net/download.php?file=data_tracking_label_2.zip).
-	Place the 3 folders in the same parent folder.
+	Download [velodyne](http://www.cvlibs.net/download.php?file=data_tracking_velodyne.zip), [calib](http://www.cvlibs.net/download.php?file=data_tracking_calib.zip) and [label_02](http://www.cvlibs.net/download.php?file=data_tracking_label_2.zip) in the dataset and place them under the same parent folder.
 
-## Training and evaluating
+## Evaluation
 
-To train a new P2B model on KITTI data:
+Train a new P2B model on KITTI data:
 ```
 python train_tracking.py --data_dir=<kitti data path>
 ```
 
-To test a new P2B model on KITTI data:
+Test a new P2B model on KITTI data:
 ```
 python test_tracking.py --data_dir=<kitti data path>
 ```
 
-Optionally, you can change other arguments in the code. 
+Please refer to the code for setting of other optional arguments, including data split, training and testing parameters, etc.
 
 ## Acknowledgements
 
-Thank Erik Wijmans for his implementation of [PointNet++](https://github.com/erikwijmans/Pointnet2_PyTorch) in Pytorch.
-
 Thank Giancola for his implementation of [SC3D](https://github.com/SilvioGiancola/ShapeCompletion3DTracking).
-
+Thank Erik Wijmans for his implementation of [PointNet++](https://github.com/erikwijmans/Pointnet2_PyTorch) in PyTorch.
 Thank Charles R. Qi for his implementation of [Votenet](https://github.com/facebookresearch/votenet).
-
-They all help and inspire me a lot in completing this work!
+They help and inspire this work. 
