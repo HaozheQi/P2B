@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository is released for P2B in our [CVPR 2020 paper][hyperlink]. Here we include our P2B model (PyTorch) and code for data preparation, training and testing on KITTI tracking dataset.
+This repository is released for P2B in our [CVPR 2020 paper](http://arxiv.org/abs/2005.13888). Here we include our P2B model (PyTorch) and code for data preparation, training and testing on KITTI tracking dataset.
 
 ## Preliminary
 
