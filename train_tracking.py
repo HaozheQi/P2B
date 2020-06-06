@@ -168,7 +168,7 @@ for epoch in range(opt.nepoch):
 		# 3.1.4 update training error
 		estimation_cla_cpu = estimation_cla.sigmoid().detach().cpu().numpy()
 		label_cla_cpu = label_cla.detach().cpu().numpy()
-		correct = float(np.sum((estimation_cla_cpu[0:len(label_point_set),:] > 0.4) == label_cla_cpu[0:len(label_point_set),:])) / 256.0
+		correct = float(np.sum((estimation_cla_cpu[0:len(label_point_set),:] > 0.4) == label_cla_cpu[0:len(label_point_set),:])) / 128.0
 		true_correct = float(np.sum((np.float32(estimation_cla_cpu[0:len(label_point_set),:] > 0.4) + label_cla_cpu[0:len(label_point_set),:]) == 2)/(np.sum(label_cla_cpu[0:len(label_point_set),:])))
 					
 		train_mse = train_mse + loss.data*len(label_point_set)
@@ -245,7 +245,7 @@ for epoch in range(opt.nepoch):
 		test_box_loss = test_box_loss + loss_box.data*len(label_point_set)
 		estimation_cla_cpu = estimation_cla.sigmoid().detach().cpu().numpy()
 		label_cla_cpu = label_cla.detach().cpu().numpy()
-		correct = float(np.sum((estimation_cla_cpu[0:len(label_point_set),:] > 0.4) == label_cla_cpu[0:len(label_point_set),:])) / 256.0
+		correct = float(np.sum((estimation_cla_cpu[0:len(label_point_set),:] > 0.4) == label_cla_cpu[0:len(label_point_set),:])) / 128.0
 		true_correct = float(np.sum((np.float32(estimation_cla_cpu[0:len(label_point_set),:] > 0.4) + label_cla_cpu[0:len(label_point_set),:]) == 2)/(np.sum(label_cla_cpu[0:len(label_point_set),:])))
 		test_correct += correct
 		test_true_correct += true_correct*len(label_point_set)
