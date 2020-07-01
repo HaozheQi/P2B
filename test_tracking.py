@@ -180,9 +180,9 @@ if __name__ == '__main__':
     # Car/Pedestrian/Van/Cyclist
     dataset_Test = SiameseTest(
             input_size=1024,
-            path= opt.data_dir,
+            path= args.data_dir,
             split='Test',
-            category_name=opt.category_name,
+            category_name=args.category_name,
             offset_BB=0,
             scale_BB=1.25)
 
