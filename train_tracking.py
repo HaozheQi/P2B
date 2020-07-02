@@ -81,7 +81,7 @@ test_data = SiameseTrain(
 
 test_dataloader = torch.utils.data.DataLoader(
     test_data,
-    batch_size=opt.batchSize/2,
+    batch_size=int(opt.batchSize/2),
     shuffle=False,
     num_workers=int(opt.workers),
     pin_memory=True)
