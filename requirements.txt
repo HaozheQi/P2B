@@ -1,7 +1,7 @@
 git+https://github.com/v-wewei/etw_pytorch_utils.git@v1.1.1#egg=etw_pytorch_utils
 h5py
 numpy
-torch==1.4
+torch==2.2.0
 torchvision==0.5
 enum34
 future
